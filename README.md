@@ -13,6 +13,7 @@ If packages are outdated or broken, you can delete the existing dependencies sec
 In the .env file, you need to keep your secrets which is db_connection_string or the port. Example in following line:
 
 MONGO_URI=connection_string
+
 PORT=3000 // in development
 
 
