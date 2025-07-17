@@ -19,8 +19,14 @@ const getTask = asyncWrapper(async (req, res, next) => {
   const task = await Task.findOne({ _id: taskID });
   if (!task) {
     // Using error class to create an error and response
+
+    // goes direct error handler middlaware
     return next(createCustomError(`No task with id ${taskID}`, 404));
-    // Direct response error
+
+    // goes first asycn wrapper catch's block, than goes error handler middlaware
+    // throw createCustomError(`No task with id ${taskID}`, 404);
+
+    // error response in controller - manuel
     // return res.status(404).json({ msg: `No task with id ${taskID}` });
   }
   res.status(200).json({ task });
